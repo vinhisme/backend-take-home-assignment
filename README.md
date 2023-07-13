@@ -9,7 +9,7 @@
   - [check] Finish Question 3
   - [check] Finish Question 4
   - [errors] Run `yarn lint` with no errors
-  Erros em nhận được: 
+  Errors em nhận được: 
   D:\Learn\backend-take-home-assignment\node_modules\next\dist\lib\find-pages-dir.js:54
         throw new Error("> Couldn't find any `pages` or `app` directory. Please create one under the project root");
               ^
