@@ -81,37 +81,37 @@ describe.concurrent('Friendship request', async () => {
    *  1. User A sends a friendship request to user B
    *  2. User B declines the friendship request
    */
-  // test('Question 2 / Scenario 1', async ({ expect }) => {
-  //   const [userA, userB] = await Promise.all([createUser(), createUser()])
+  test('Question 2 / Scenario 1', async ({ expect }) => {
+    const [userA, userB] = await Promise.all([createUser(), createUser()])
 
-  //   await expect(
-  //     userA.sendFriendshipRequest({
-  //       friendUserId: userB.id,
-  //     })
-  //   ).resolves.not.toThrow()
+    await expect(
+      userA.sendFriendshipRequest({
+        friendUserId: userB.id,
+      })
+    ).resolves.not.toThrow()
 
-  //   await expect(
-  //     userA.getMyOutgoingFriendshipRequests()
-  //   ).resolves.toContainEqual(
-  //     expect.objectContaining({
-  //       friendUserId: userB.id,
-  //       status: FriendshipStatusSchema.Values['requested'],
-  //     })
-  //   )
+    await expect(
+      userA.getMyOutgoingFriendshipRequests()
+    ).resolves.toContainEqual(
+      expect.objectContaining({
+        friendUserId: userB.id,
+        status: FriendshipStatusSchema.Values['requested'],
+      })
+    )
 
-  //   await userB.declineFriendshipRequest({
-  //     friendUserId: userA.id,
-  //   })
+    await userB.declineFriendshipRequest({
+      friendUserId: userA.id,
+    })
 
-  //   await expect(
-  //     userA.getMyOutgoingFriendshipRequests()
-  //   ).resolves.toContainEqual(
-  //     expect.objectContaining({
-  //       friendUserId: userB.id,
-  //       status: FriendshipStatusSchema.Values['declined'],
-  //     })
-  //   )
-  // })
+    await expect(
+      userA.getMyOutgoingFriendshipRequests()
+    ).resolves.toContainEqual(
+      expect.objectContaining({
+        friendUserId: userB.id,
+        status: FriendshipStatusSchema.Values['declined'],
+      })
+    )
+  })
 
   /**
    * Scenario:
